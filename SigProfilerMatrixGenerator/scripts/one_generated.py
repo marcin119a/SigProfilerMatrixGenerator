@@ -1,7 +1,8 @@
 import os
-from MutationMatrixGenerator import gene_range
+from SigProfilerMatrixGenerator.scripts.MutationMatrixGenerator import gene_range
 from scipy import stats
 import statsmodels.stats.multitest as sm
+
 
 def catalogue_generator_single(
     lines,
@@ -321,7 +322,7 @@ def catalogue_generator_single(
                 strand = "0"
 
                 if dinuc_seq_tsb in mutation_types_tsb_context:
-                    mutation_dinuc_pd_all.at[dinuc_seq_tsb, sample].extend(f'{chrom_start}')
+                    mutation_dinuc_pd_all.at[dinuc_seq_tsb, sample].extend(f'{start}')
 
                 else:
                     dinuc_seq_tsb = "".join(
@@ -336,11 +337,11 @@ def catalogue_generator_single(
                             revcompl(dinuc_seq_tsb[2]),
                         ]
                     )
-                    mutation_dinuc_pd_all.at[dinuc_seq_tsb, sample].extend(f'{chrom_start}')
+                    mutation_dinuc_pd_all.at[dinuc_seq_tsb, sample].extend(f'{start}')
 
             else:
                 if dinuc_seq_tsb in mutation_types_tsb_context:
-                    mutation_dinuc_pd_all.at[dinuc_seq_tsb, sample].extend(f'{chrom_start}')
+                    mutation_dinuc_pd_all.at[dinuc_seq_tsb, sample].extend(f'{start}')
 
                 else:
                     strand = "-1"
@@ -357,7 +358,7 @@ def catalogue_generator_single(
                             revcompl(dinuc_seq_tsb[2]),
                         ]
                     )
-                    mutation_dinuc_pd_all.at[dinuc_seq_tsb, sample].extend(f'{chrom_start}')
+                    mutation_dinuc_pd_all.at[dinuc_seq_tsb, sample].extend(f'{start}')
 
             if seqInfo:
                 print(
@@ -561,7 +562,7 @@ def catalogue_generator_single(
                             sequence[int(len(sequence) / 2 + 1) :],
                         ]
                     )
-                    mutation_dict["6144"].at[mut_key, sample].extend(f'{chrom_start}')
+                    mutation_dict["6144"].at[mut_key, sample].extend(f'{start}')
                     total_analyzed += 1
 
                     # If exome is specified, it will write the variant to a temporary exome file.
