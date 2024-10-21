@@ -1,5 +1,28 @@
 import itertools
 
+tsb_ref = {
+    0: ["N", "A"],
+    1: ["N", "C"],
+    2: ["N", "G"],
+    3: ["N", "T"],
+    4: ["T", "A"],
+    5: ["T", "C"],
+    6: ["T", "G"],
+    7: ["T", "T"],
+    8: ["U", "A"],
+    9: ["U", "C"],
+    10: ["U", "G"],
+    11: ["U", "T"],
+    12: ["B", "A"],
+    13: ["B", "C"],
+    14: ["B", "G"],
+    15: ["B", "T"],
+    16: ["N", "N"],
+    17: ["T", "N"],
+    18: ["U", "N"],
+    19: ["B", "N"],
+}
+
 def perm(n, seq):
     """
     Generates a list of all available permutations of n-mers.
