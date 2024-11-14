@@ -358,6 +358,7 @@ def catalogue_generator_single(
                             revcompl(dinuc_seq_tsb[2]),
                         ]
                     )
+                    print('test')
                     mutation_dinuc_pd_all.at[dinuc_seq_tsb, sample].append(f'{start}')
 
             if seqInfo:
@@ -562,6 +563,7 @@ def catalogue_generator_single(
                             sequence[int(len(sequence) / 2 + 1) :],
                         ]
                     )
+                    print(f'{mut_key}, {start}')
                     mutation_dict["6144"].at[mut_key, sample].append(f'{start}')
                     total_analyzed += 1
 
