@@ -563,7 +563,6 @@ def catalogue_generator_single(
                             sequence[int(len(sequence) / 2 + 1) :],
                         ]
                     )
-                    print(f'{mut_key}, {start}')
                     mutation_dict["6144"].at[mut_key, sample].append(f'{start}')
                     total_analyzed += 1
 
