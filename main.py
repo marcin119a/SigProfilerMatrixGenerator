@@ -39,7 +39,7 @@ if __name__ == "__main__":
 
     for chrom in chrom_list:
         lines = read_vcf('SigProfilerMatrixGenerator/references/vcf_files/GRCh37_bench/GRCh37_bench.vcf', sample=samples[0])
-        chrom_lines = [line for line in lines if line[0] == chrom]
+        chrom_lines = [line for line in lines if line[1] == chrom]
         chrom = chrom
 
         vcf_path = 'SigProfilerMatrixGenerator/references/tests/WGS/GRCh37/output/temp/test_01270cc6-d80d-4b2f-b4d1-066e6a46953b/SNV/'
@@ -64,7 +64,7 @@ if __name__ == "__main__":
             total_DINUC,
             mutation_dinuc_pd_all,
         ) = catalogue_generator_single(
-            lines,
+            chrom_lines,
             chrom,
             mutation_dict,
             mutation_dinuc_pd_all,
@@ -81,4 +81,4 @@ if __name__ == "__main__":
             gs,
             log_file
         )
-    mutation_dict["6144"].to_csv('output_mutations.csv')
+    print(mutation_dict["6144"])
